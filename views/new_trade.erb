@@ -1,0 +1,15 @@
+<h1>Add a trade</h1>
+
+<form action="/trades" method = "post">
+<label for="">Date of Trade</label>
+<input type="date" name = "trade_date">
+<label for="">Type of trade (BUY or SELL)</label>
+<input type="text" name = "trade_type">
+<label for="">Amount of Bitcoin</label>
+<input type="number" step="any" name = "amount">
+<label for="">Price/Bitcoin ($US)</label>
+<input type="number"  step="any" name = "price">
+<label for="">Total amount ($US)</label>
+<input type="number"  step="any" name = "total">
+<button>Save</button>
+</form>

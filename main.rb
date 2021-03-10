@@ -11,10 +11,7 @@ if development?
   require 'pry'
 end 
 
-get '/' do
-  
-  trades = run_sql('SELECT * FROM trades')
-
+def getTotal(trades)
   amount_total = 0
 
   trades.each do |trade|
@@ -24,21 +21,57 @@ get '/' do
       amount_total = amount_total - trade['amount'].to_f
     end
   end
+
+  return amount_total
+end
+
+get '/' do
   
-  "#{amount_total}"
-  
+  trades = run_sql('SELECT * FROM trades')
+
+  amount_total = getTotal(trades)
   
   erb :index, locals: {
     amount_total: amount_total,
-    trade_date: trade['trade_date'],
-    trade_type: trade['trade_type'],
-    amount: trade['amount'],
-    price: trade['price'],
-    total: trade['total']
+    trades: trades
   }
+
 end
 
+get '/trades/new' do
+  
+ erb :new_trade
 
+end
 
+post '/trades' do
 
+  run_sql("INSERT INTO trades (trade_date, trade_type, amount, price, total) VALUES ($1, $2, $3, $4, $5)",[params[:trade_date],params[:trade_type],params[:amount],params[:price],params[:total]])
 
+  redirect '/'
+
+end
+
+get '/trades/:id/edit' do
+
+  trades = run_sql('SELECT * FROM trades where id = $1',[params[:id]])
+
+  erb :edit_trade, locals: { trade: trades[0] }
+
+end
+
+patch '/trades/:id' do
+
+  run_sql('UPDATE trades set trade_date = $1, trade_type = $2, amount = $3, price = $4, total = $5 where id = $6;', [params[:trade_date],params[:trade_type], params[:amount], params[:price], params[:total], params[:id]])
+
+  redirect '/'
+
+end
+
+delete '/trades/:id' do
+
+  run_sql('DELETE FROM trades WHERE id = $1;',[ params[:id] ])
+
+  redirect '/'
+
+end
