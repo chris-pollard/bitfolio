@@ -21,7 +21,7 @@ if development?
   require 'pry'
 end 
 
-def getTotal(trades)
+def get_total(trades)
   amount_total = 0
 
   trades.each do |trade|
@@ -47,16 +47,41 @@ def current_user
 
 end
 
+def check_difference(sell_amount)
+  db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'bitfolio'})
+  trades = db.exec_params('select * from trades where user_id = $1', [current_user()['id']])
+
+  if trades.count < 1
+    return -1
+  end
+
+  amount_total = get_total(trades)
+
+  difference = amount_total - sell_amount
+
+  return difference
+
+end
+
+
 get '/' do
   
-  trades = run_sql('SELECT * FROM trades')
+  result_string = HTTParty.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+
+  result = JSON.parse(result_string)
+
+  price = result['bpi']['USD']['rate_float'].round(2)
+
+  trades = run_sql('SELECT * FROM trades ORDER BY trade_date ASC;')
   if logged_in?
     amount_total = getTotal(trades)
   end
-  
+
   erb :index, locals: {
     amount_total: amount_total,
-    trades: trades
+    trades: trades,
+    current_price_usd: price,
+    disclaimer: result['disclaimer']
   }
 
 end
@@ -68,6 +93,13 @@ get '/trades/new' do
 end
 
 post '/trades' do
+  if params[:trade_type] == 'SELL'
+    difference = check_difference(params[:amount_total])
+    if difference < 0 
+      redirect '/submission_error'
+    end
+
+  end
 
   run_sql("INSERT INTO trades (trade_date, trade_type, amount, price, total, user_id) VALUES ($1, $2, $3, $4, $5, $6);",[params[:trade_date],params[:trade_type],params[:amount],params[:price],params[:total],current_user()['id']])
 
@@ -152,4 +184,11 @@ post '/users' do
   run_sql('INSERT INTO users (username, password_digest) VALUES ($1, $2);',[username, password_digest])
 
   redirect '/login'
+end
+
+
+
+get '/submission_error' do
+  
+  erb :submission_error
 end

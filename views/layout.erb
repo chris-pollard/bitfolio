@@ -17,14 +17,41 @@
   
     <form action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
     <button>log out</button></form> 
-    <p><a href="/login">Login</a></p>
 
   <% else %>
     <a href="/login">Log in</a> <a href="/signup">Sign up</a>
   <% end %>
 </header>
 
-  <%= yield %>
+<div class="wrapper">
+  <main>
+
+    <%= yield %>
+
+  </main>
+  <aside>
+    <section class="forex-calculator">
+      <h3>Bitcoin price in fiat</h3>
+      <form action="">
+      <label for="">Currency</label>
+      <input type="text">
+      <p class="display-forex-result"></p>
+      <button>Go</button>
+      </form>
+    </section>
+
+    <section class="satoshi-calculator">
+      <h3>Bitcoin to Satoshis</h3>
+      <form action="">
+      <label for="">Bitcoin</label>
+      <input type="text">
+      <p class="display-forex-result"></p>
+      <button>Go</button>
+      </form>
+    </section>
+  </aside>
+</div>
+
 
 <footer>
 
