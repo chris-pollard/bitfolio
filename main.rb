@@ -57,7 +57,7 @@ def check_difference(sell_amount)
 
   amount_total = get_total(trades)
 
-  difference = amount_total - sell_amount
+  difference = amount_total - sell_amount.to_f
 
   return difference
 
@@ -94,7 +94,9 @@ end
 
 post '/trades' do
   if params[:trade_type] == 'SELL'
-    difference = check_difference(params[:amount_total])
+    difference = check_difference(params[:amount])
+
+
     if difference < 0 
       redirect '/submission_error'
     end

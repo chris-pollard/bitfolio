@@ -9,18 +9,27 @@
 <body>
 
 <header>
-<h1>Bitfolio</h1>
-<h2>Track your bitcoin portfolio</h2>
-<% if logged_in?%>
+  <h1>Bitfolio</h1>
+  <h2>Track your bitcoin portfolio</h2>
 
-    <p>logged in as <%= current_user['username'] %></p>
-  
-    <form action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
-    <button>log out</button></form> 
+  <nav>
+    <ul>
+      <li><a href="/">Dashboard</a></li>
+      <li><a href="/">Add trade</a></li>
+      <li><a href="/">Edit trade</a></li>
+    </ul>
+  </nav>
 
-  <% else %>
-    <a href="/login">Log in</a> <a href="/signup">Sign up</a>
-  <% end %>
+  <% if logged_in?%>
+
+      <p>logged in as <%= current_user['username'] %></p>
+    
+      <form action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
+      <button>log out</button></form> 
+
+    <% else %>
+      <a href="/login">Log in</a> <a href="/signup">Sign up</a>
+    <% end %>
 </header>
 
 <div class="wrapper">
