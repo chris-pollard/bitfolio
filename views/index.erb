@@ -4,17 +4,19 @@
 <% if logged_in? %>
 
     <h1>Bitcoin Portfolio</h1>
-    <p>Your current holdings: <%= amount_total.round(5) %> BTC worth $<%= (amount_total.round(5) * session[:usd_price]).round(2) %></p>
+    <p>Your current holdings: <span class="bold"><%= amount_total.round(5) %>  BTC</span> worth <span class="bold">$<%= (amount_total.round(5) * session[:usd_price]).round(2) %></span></p>
     <p>Realised Profit: $<%= real_profit %></p>
 
     <a href="/trades/new">Add trade</a>
 
-    <div class="trade-grid" style="display:grid;grid-template-columns:repeat(6,125px [col-start]);">
-        <p class="bold">Date</p>
-        <p class="bold">Type</p>
-        <p class="bold">Amount</p>
-        <p class="bold">Price ($US)</p>
-        <p class="bold">Total ($US)</p>
+    <%# <div class="trade-grid" style="display:grid;grid-template-columns:repeat(6,140px [col-start]);"> %>
+
+    <div class="trade-grid" style="display:grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;">
+        <p class="bold left-align">Date</p>
+        <p class="bold left-align">Type</p>
+        <p class="bold left-align">Amount (BTC)</p>
+        <p class="bold right-align">Price ($US)</p>
+        <p class="bold right-align">Total ($US)</p>
         <p></p>
 
         
@@ -22,11 +24,11 @@
         <% trades.each do |trade| %>
 
             <% if current_user()['id'] == trade['user_id']%>
-                <p><%= trade['trade_date'] %></p>
-                <p><%= trade['trade_type'] %></p>
-                <p><%= trade['amount'] %> BTC</p>
-                <p>$<%= trade['price'] %></p>
-                <p>$<%= trade['total'] %></p>
+                <p class="left-align"><%= trade['trade_date'] %></p>
+                <p class="left-align"><%= trade['trade_type'] %></p>
+                <p class="left-align"><%= trade['amount'] %></p>
+                <p class="right-align">$<%= trade['price'] %></p>
+                <p class="right-align">$<%= trade['total'] %></p>
                 <a href="/trades/<%=trade['id']%>/edit"><p>edit</p></a>
             <% end %>
 

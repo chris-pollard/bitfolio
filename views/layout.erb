@@ -21,7 +21,7 @@
         </div>
 
         <div class="centre-header">
-          <p class="ticker pad-right bold">Bitcoin</p><p class="current-usd ticker pad-left">$<%= session[:usd_price] %></p>
+          <p class="btc-title ticker pad-right bold">Bitcoin</p><p class="current-usd ticker pad-left">$<%= session[:usd_price] %></p>
         </div>
 
         <div class="right-header">
@@ -43,9 +43,10 @@
       <div class="bottom-header">
         <nav class="inline">
           <ul class="inline top-nav-ul">
-            <li class="inline top-nav-li" ><a href="/">Dashboard</a></li>
-            <li class="inline top-nav-li"><a href="/">Add trade</a></li>
-            <li class="inline top-nav-li"><a href="/">Edit trade</a></li>
+            <li class="inline top-nav-li" ><a href="/">dashboard</a></li>
+            <li class="inline top-nav-li"><a href="/">add trade</a></li>
+            <li class="inline top-nav-li"><a href="/">edit trade</a></li>
+            <li class="inline top-nav-li"><a href="/">satoshi converter</a></li>
           </ul>
         </nav>
       </div>
@@ -96,6 +97,7 @@
 
     <footer>
       <p>&copy; copyright crspy 2021</p>
+      <p class="disclaimer">The BTC price data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org</p>
     </footer>
 
   </div>

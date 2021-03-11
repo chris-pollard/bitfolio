@@ -6,15 +6,17 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+    color: #476268;
 }
 
 html, body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
 }
 
 .full-height {
-    height: 100%;
+    min-height: 100%;
+    background-color: #f1f1f1;
 
 }
 
@@ -46,7 +48,7 @@ header {
 
 header {
     display: grid;
-    grid-template-rows: 45px 40px;
+    grid-template-rows: 50px 40px;
 
 }
 
@@ -65,6 +67,7 @@ header {
     font-family: 'Roboto Mono', monospace;
     font-weight: 500;
     margin-bottom: -3px;
+    color: #476268;
 }
 
 .header-subtitle {
@@ -118,9 +121,9 @@ header {
 }
 
 a {
-    background-color: red;
-    box-shadow: 0 5px 0 darkred;
-    color: white;
+    background-color: #95E06C;
+    box-shadow: 0 2px 0 #41a798;
+    color: #476268;
     padding: 0.3em 0.6em;
     position: relative;
     text-decoration: none;
@@ -128,7 +131,11 @@ a {
   }
   
   a:hover {
-    background-color: #ce0606;
+    background-color: #CEF1BC;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
   
   a:active {
@@ -141,3 +148,54 @@ a {
       padding-right: 10px;
       
   }
+
+  .current-usd {
+      color: #094D92;
+  }
+
+  .btc-title {
+    color: #094D92;
+  }
+
+  .disclaimer {
+      font-size: 0.8em;
+  }
+
+  form {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      text-align: left;
+      align-self: center;
+
+  }
+
+  button {
+      width: 50%;
+  }
+
+  input, button, label {
+      margin: 0;
+  }
+
+  label {
+      padding: 10px 0;
+  }
+
+  button {
+      margin-top: 20px;
+  }
+
+  main {
+      display: flex;
+      flex-direction: column;
+
+  }
+
+  .right-align {
+      text-align: right;
+  }
+
+  .left-align {
+    text-align: left;
+}
