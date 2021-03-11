@@ -1,39 +1,45 @@
-<h2>Current price of Bitcoin: $<%= current_price_usd %></h2>
+
 
 
 <% if logged_in? %>
 
     <h1>Bitcoin Portfolio</h1>
-    <p>Your current holdings: <%= amount_total %> BTC</p>
+    <p>Your current holdings: <%= amount_total.round(5) %> BTC worth $<%= (amount_total.round(5) * session[:usd_price]).round(2) %></p>
+    <p>Realised Profit: $<%= real_profit %></p>
 
+    <a href="/trades/new">Add trade</a>
 
     <div class="trade-grid" style="display:grid;grid-template-columns:repeat(6,125px [col-start]);">
-    <p class="bold">Date</p>
-    <p class="bold">Type</p>
-    <p class="bold">Amount</p>
-    <p class="bold">Price ($US)</p>
-    <p class="bold">Total ($US)</p>
-    <p></p>
+        <p class="bold">Date</p>
+        <p class="bold">Type</p>
+        <p class="bold">Amount</p>
+        <p class="bold">Price ($US)</p>
+        <p class="bold">Total ($US)</p>
+        <p></p>
 
-    <% trades.each do |trade| %>
+        
 
-        <% if current_user()['id'] == trade['user_id']%>
-            <p><%= trade['trade_date'] %></p>
-            <p><%= trade['trade_type'] %></p>
-            <p><%= trade['amount'] %> BTC</p>
-            <p>$<%= trade['price'] %></p>
-            <p>$<%= trade['total'] %></p>
-            <a href="/trades/<%=trade['id']%>/edit"><p>edit</p></a>
+        <% trades.each do |trade| %>
+
+            <% if current_user()['id'] == trade['user_id']%>
+                <p><%= trade['trade_date'] %></p>
+                <p><%= trade['trade_type'] %></p>
+                <p><%= trade['amount'] %> BTC</p>
+                <p>$<%= trade['price'] %></p>
+                <p>$<%= trade['total'] %></p>
+                <a href="/trades/<%=trade['id']%>/edit"><p>edit</p></a>
+            <% end %>
+
         <% end %>
-
-    <% end %>
 
     </div>
 
     <a href="/trades/new">Add trade</a>
 
 <% else %>
-
-    <p>No information available</p>
+    <img class="home-logo" src="/resources/logo/logo_transparent.png" alt="">
+    <h2>Track your bitcoin</h2>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
 
 <% end %>

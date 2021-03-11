@@ -2,68 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bitfolio</title>
+  <title>Bitfolio - track your bitcoin</title>
+  <link rel="shortcut icon" href="/resources/logo/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/resources/logo/favicon.ico" type="image/x-icon">
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="page-wrapper full-height">
 
-<header>
-  <h1>Bitfolio</h1>
-  <h2>Track your bitcoin portfolio</h2>
+    <header>
+      
+      <div class="top-header">
+        <div class="left-header">
+          <img class="shield-header" src="/resources/logo/logo_shield_only.png" alt="">
+          <h1 class="inline header-title">Bitfolio</h1>
+          <h2 class="inline header-subtitle">by crspy</h2>
+        </div>
 
-  <nav>
-    <ul>
-      <li><a href="/">Dashboard</a></li>
-      <li><a href="/">Add trade</a></li>
-      <li><a href="/">Edit trade</a></li>
-    </ul>
-  </nav>
+        <div class="centre-header">
+          <p class="ticker pad-right bold">Bitcoin</p><p class="current-usd ticker pad-left">$<%= session[:usd_price] %></p>
+        </div>
 
-  <% if logged_in?%>
+        <div class="right-header">
+          <% if logged_in?%>
 
-      <p>logged in as <%= current_user['username'] %></p>
-    
-      <form action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
-      <button>log out</button></form> 
+            <p class="inline">logged in as <%= current_user['username'] %></p>
+        
+            <form class="inline" action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
+            <button>log out</button>
+            </form> 
 
-    <% else %>
-      <a href="/login">Log in</a> <a href="/signup">Sign up</a>
-    <% end %>
-</header>
+            <% else %>
+            <a class="inline login-link" href="/login">Log in</a> <a href="/signup">Sign up</a>
+          <% end %>
+        </div>
+      </div>
+      
 
-<div class="wrapper">
-  <main>
+      <div class="bottom-header">
+        <nav class="inline">
+          <ul class="inline top-nav-ul">
+            <li class="inline top-nav-li" ><a href="/">Dashboard</a></li>
+            <li class="inline top-nav-li"><a href="/">Add trade</a></li>
+            <li class="inline top-nav-li"><a href="/">Edit trade</a></li>
+          </ul>
+        </nav>
+      </div>
 
-    <%= yield %>
+      
+      
+      
+      
 
-  </main>
-  <aside>
-    <section class="forex-calculator">
-      <h3>Bitcoin price in fiat</h3>
-      <form action="">
-      <label for="">Currency</label>
-      <input type="text">
-      <p class="display-forex-result"></p>
-      <button>Go</button>
-      </form>
-    </section>
+      
 
-    <section class="satoshi-calculator">
-      <h3>Bitcoin to Satoshis</h3>
-      <form action="">
-      <label for="">Bitcoin</label>
-      <input type="text">
-      <p class="display-forex-result"></p>
-      <button>Go</button>
-      </form>
-    </section>
-  </aside>
-</div>
+      
+
+        
+    </header>
+
+    <div class="wrapper grow">
+      <main>
+
+        <%= yield %>
+
+      </main>
+      <aside>
+        <%# <section class="forex-calculator">
+          <h3>Bitcoin price in fiat</h3>
+          <form action="">
+          <label for="">Currency</label>
+          <input type="text">
+          <p class="display-forex-result"></p>
+          <button>Go</button>
+          </form>
+        </section> %>
+
+        <%# <section class="satoshi-calculator">
+          <h3>Satoshi Calculator</h3>
+          <form action="">
+            <label for="">Bitcoin</label>
+            <input class="bitcoin-value" type="number"  step="any">
+            <label for="">Satoshis</label>
+            <input class="satoshi-value" type="number"  step="any">
+            <label for="">US Dollars</label>
+            <input class="usd-value" type="number"  step="any">
+          </form>
+        </section> %>
+      </aside>
+    </div>
 
 
-<footer>
+    <footer>
+      <p>&copy; copyright crspy 2021</p>
+    </footer>
 
-</footer>
+  </div>
+
+<script src="/javascripts/application.js"></script>
+
 </body>
 </html>

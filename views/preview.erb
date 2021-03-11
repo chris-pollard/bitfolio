@@ -1,0 +1,22 @@
+<h1>Preview trade entry</h1>
+
+<form action="/trades" method = "post">
+
+<input type="hidden" name = "trade_date" value="<%= trade_date %>">
+
+<input type="hidden" name = "trade_type" value="<%= trade_type %>">
+
+<input type="hidden" step="any" name = "amount" value="<%= amount %>">
+
+<input type="hidden"  step="any" name = "price" value="<%= price %>">
+
+<p>Date of trade: <%= trade_date %></p>
+<p>Type: <%= trade_type %></p>
+<p>Amount (BTC): <%= amount %></p>
+<p>Price (USD) $<%= price %></p>
+<p>Total (USD): $<%= amount.to_f * price.to_f %></p>
+
+<button>Submit</button>
+</form>
+<a href="/trades/new">Cancel</a>
+
