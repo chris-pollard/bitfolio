@@ -28,3 +28,9 @@ Be deployed online and accessible to the public
 
 
 [Link to project requirements document](https://gist.github.com/epoch/7651b05c23b1fd26f00663b4866c1e26)
+
+Planning
+
+[Screenshot 1](Profit_algo_planning1.jpg)
+
+[Screenshot 2](Profit_algo_planning2.jpg)
