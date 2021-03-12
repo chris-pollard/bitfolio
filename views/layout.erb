@@ -21,13 +21,13 @@
         </div>
 
         <div class="centre-header">
-          <p class="btc-title ticker pad-right bold">Bitcoin</p><p class="current-usd ticker pad-left">$<%= session[:usd_price] %></p>
+          <p class="btc-title ticker pad-right bold">Bitcoin</p><p class="ticker pad-left">$<span class="current-usd ticker"><%= session[:usd_price] %></span></p>
         </div>
 
         <div class="right-header">
           <% if logged_in?%>
 
-            <p class="">logged in as <%= current_user['username'] %></p>
+            <p class="">logged in as <span class="bold"><%= current_user['username'] %></span></p>
         
             <form class="logout-form" action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
             <button class="inline logout-btn">log out</button>
@@ -45,7 +45,8 @@
           <ul class="inline top-nav-ul">
             <li class="inline top-nav-li" ><a href="/">dashboard</a></li>
             <li class="inline top-nav-li"><a href="/trades/new">add trade</a></li>
-            <li class="inline top-nav-li"><a href="/">satoshi converter</a></li>
+            <li class="inline top-nav-li"><a href="/satoshi_converter">satoshi converter</a></li>
+            <li class="inline top-nav-li"><a href="/about">about</a></li>
           </ul>
         </nav>
       </div>

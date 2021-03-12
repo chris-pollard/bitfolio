@@ -138,6 +138,27 @@ a {
     border-top-right-radius: 10px;
     /* border-radius: 2px; */
   }
+
+.bitcoin-wiki-link {
+    background-color: #f1f1f1;
+    /* box-shadow: 0 2px 0 #41a798; */
+    color: #476268;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    text-transform: initial;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.bitcoin-wiki-link:hover {
+    background-color: initial;
+}
+
+.bitcoin-wiki-link:active {
+    box-shadow: none;
+    top: initial;
+}
   
   a:hover {
     background-color: #CEF1BC;
@@ -211,12 +232,16 @@ a {
     text-align: left;
 }
 
-.home-logo, .home-slogan, .home-login, .home-signup {
-    
+
+.home-login, .home-signup, .cancel {
+    position: initial;
+    width: 150px;
+    border-radius: 0;
+    align-self: center;
 }
 
-.home-login, .home-signup {
-    position: initial;
+.home-login {
+    margin-top: 50px;
 }
 
 .logout-form {
@@ -232,6 +257,8 @@ a {
     margin: 0 auto;
     position: absolute;
     right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .portfolio-heading {
@@ -241,8 +268,28 @@ a {
 
 .portfolio-profit {
     padding-bottom: 30px; 
+}
 
-    
+.page-heading {
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+.page-subheading {
+    padding-bottom: 30px;
+}
+
+.page-text {
+    width: 500px;
+    align-self: center;
+}
+
+.satoshi-calculator {
+    padding-top: 30px;
+}
+
+.satoshi-form {
+    margin: auto;
 }
 
 .negative {
@@ -287,5 +334,19 @@ a {
 
 footer {
     padding-top: 100px;
+    padding-bottom: 10px;
 }
 
+form input, form button, select, option {
+    font-size: 1em;
+}
+
+button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-self: center;
+}
+
+.home-logo {
+    align-self: center;
+}

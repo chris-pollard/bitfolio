@@ -183,8 +183,14 @@ get '/' do
 end
 
 get '/trades/new' do
-  
- erb :new_trade
+  if logged_in?
+    erb :new_trade
+  else
+    redirect '/'
+  end
+
+
+ 
 
 end
 
@@ -306,4 +312,16 @@ end
 get '/submission_error' do
   
   erb :submission_error
+end
+
+get '/satoshi_converter' do
+  
+  erb :satoshi_converter
+
+end
+
+get '/about' do
+  
+  erb :about
+
 end
