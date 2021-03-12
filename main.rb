@@ -159,7 +159,7 @@ get '/' do
   if logged_in?
     trades = run_sql('SELECT * FROM trades ORDER BY trade_date ASC;')
     if logged_in?
-      amount_total = getTotal(trades)
+      amount_total = get_total(trades)
     end
 
     realised_profit = calculate_realised(trades)
