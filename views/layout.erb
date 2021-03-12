@@ -27,10 +27,10 @@
         <div class="right-header">
           <% if logged_in?%>
 
-            <p class="inline">logged in as <%= current_user['username'] %></p>
+            <p class="">logged in as <%= current_user['username'] %></p>
         
-            <form class="inline" action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
-            <button>log out</button>
+            <form class="logout-form" action="/sessions" method="post"><input type="hidden" name="_method" value="delete">
+            <button class="inline logout-btn">log out</button>
             </form> 
 
             <% else %>
@@ -44,8 +44,7 @@
         <nav class="inline">
           <ul class="inline top-nav-ul">
             <li class="inline top-nav-li" ><a href="/">dashboard</a></li>
-            <li class="inline top-nav-li"><a href="/">add trade</a></li>
-            <li class="inline top-nav-li"><a href="/">edit trade</a></li>
+            <li class="inline top-nav-li"><a href="/trades/new">add trade</a></li>
             <li class="inline top-nav-li"><a href="/">satoshi converter</a></li>
           </ul>
         </nav>
@@ -64,11 +63,11 @@
     </header>
 
     <div class="wrapper grow">
-      <main>
+      <%# <main> %>
 
         <%= yield %>
 
-      </main>
+      <%# </main>
       <aside>
         <%# <section class="forex-calculator">
           <h3>Bitcoin price in fiat</h3>
@@ -91,7 +90,7 @@
             <input class="usd-value" type="number"  step="any">
           </form>
         </section> %>
-      </aside>
+      <%# </aside> %>
     </div>
 
 

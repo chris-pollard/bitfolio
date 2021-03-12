@@ -3,20 +3,27 @@
 
 <% if logged_in? %>
 
-    <h1>Bitcoin Portfolio</h1>
-    <p>Your current holdings: <span class="bold"><%= amount_total.round(5) %>  BTC</span> worth <span class="bold">$<%= (amount_total.round(5) * session[:usd_price]).round(2) %></span></p>
-    <p>Realised Profit: $<%= real_profit %></p>
+    <h1 class="portfolio-heading">My Portfolio</h1>
+    <p class="portfolio-holdings">Your current holdings: <span class="bold"><%= amount_total.round(5) %>  BTC</span> worth <span class="bold">$<%= (amount_total.round(5) * session[:usd_price]).round(2) %></span></p>
+    
+    <% if real_profit.negative?()%>
+        <p class="portfolio-profit">Realised Profit: <span class="bold negative">-$<%= -real_profit %></span></p>
+    <% else%>
+        <p class="portfolio-profit">Realised Profit: <span class="bold positive">$<%= real_profit %></span></p>
+    <% end %>
+    
+    
 
-    <a href="/trades/new">Add trade</a>
+    <a class="add-trade-top" href="/trades/new">Add trade</a>
 
     <%# <div class="trade-grid" style="display:grid;grid-template-columns:repeat(6,140px [col-start]);"> %>
 
     <div class="trade-grid" style="display:grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;">
-        <p class="bold left-align">Date</p>
-        <p class="bold left-align">Type</p>
-        <p class="bold left-align">Amount (BTC)</p>
-        <p class="bold right-align">Price ($US)</p>
-        <p class="bold right-align">Total ($US)</p>
+        <p class="bold left-align col-title">Date</p>
+        <p class="bold left-align col-title">Type</p>
+        <p class="bold left-align col-title">Amount (BTC)</p>
+        <p class="bold right-align col-title">Price ($US)</p>
+        <p class="bold right-align col-title">Total ($US)</p>
         <p></p>
 
         
@@ -29,19 +36,19 @@
                 <p class="left-align"><%= trade['amount'] %></p>
                 <p class="right-align">$<%= trade['price'] %></p>
                 <p class="right-align">$<%= trade['total'] %></p>
-                <a href="/trades/<%=trade['id']%>/edit"><p>edit</p></a>
+                <a class="edit-link" href="/trades/<%=trade['id']%>/edit"><p>edit</p></a>
             <% end %>
 
         <% end %>
 
     </div>
 
-    <a href="/trades/new">Add trade</a>
+    <a class="add-trade-bottom" href="/trades/new">Add trade</a>
 
 <% else %>
     <img class="home-logo" src="/resources/logo/logo_transparent.png" alt="">
-    <h2>Track your bitcoin</h2>
-    <a href="/login">Login</a>
-    <a href="/signup">Signup</a>
+    <h2 class="home-slogan">track your bitcoin</h2>
+    <a class="home-login" href="/login">Login</a>
+    <a class="home-signup" href="/signup">Signup</a>
 
 <% end %>
