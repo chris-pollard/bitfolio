@@ -139,7 +139,7 @@ a {
     /* border-radius: 2px; */
   }
 
-.bitcoin-wiki-link {
+.bitcoin-wiki-link, .crud-wiki-link {
     background-color: #f1f1f1;
     /* box-shadow: 0 2px 0 #41a798; */
     color: #476268;
@@ -153,6 +153,15 @@ a {
 
 .bitcoin-wiki-link:hover {
     background-color: initial;
+}
+
+.crud-wiki-link:hover {
+    background-color: initial;
+}
+
+.crud-wiki-link:active {
+    box-shadow: none;
+    top: initial;
 }
 
 .bitcoin-wiki-link:active {

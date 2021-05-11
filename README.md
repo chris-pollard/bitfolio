@@ -25,6 +25,10 @@ The app must:
 - Have semantically clean HTML and CSS
 Be deployed online and accessible to the public 
 
+### Known issues/bugs
+
+- The satoshi calculation is incorrect by a multiple of 10 on Satoshi Converter page.
+- Display only optimised for desktop view.
 
 
 [Link to project requirements document](https://gist.github.com/epoch/7651b05c23b1fd26f00663b4866c1e26)
