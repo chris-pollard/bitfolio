@@ -1,9 +1,4 @@
-# Project 2 - CRUD app
-
-
-## General Assembly Software Engineering Immersive 
-
-  
+# Bitfolio app
 
 [Visit website](https://bitfolio-crspy.herokuapp.com/)
 
@@ -11,27 +6,23 @@ First prototype version - published 12 March 2021. Deployed on Heroku platform.
 
 ![alt text](public/resources/bitfolio_web_app_screenshot.png "prototype screenshot")
 
-
 ### Purpose
-The purpose of this project is to demonstrate skills learnt in the second three week block of the Software Engineering Immersive course at General Assembly; namely creating CRUD web apps, using SQL databases, and deploying to an external server. Also while continuuing to utilise javaScript (including DOM manipulation), basic HTML and basic CSS.
+The purpose of this application is to manage bitcoin transaction records. Features include:
+- Sign in / log in functionality
+- Add record, update record, delete record.
+- View records in a table.
+- API price feed from CoinDesk
+- RESTful routes
+- 2 resource tables using a PSQL database
 
-### Application requirements
-The app must:
-
-- Have ideally 2 resources(tables) (more tables if they make sense or less tables) – one representing someone using your application, and one that represents the main functional idea for your app
-- Include sign up/log in functionality(if they make sense), with encrypted passwords & an authorization flow
-- Have complete RESTful routes for at least one of your resource with GET, POST, PATCH, and DELETE for read, create, update and delete
-- Include wireframes that you designed during the planning process
-- Have semantically clean HTML and CSS
-Be deployed online and accessible to the public 
+## Techniques
+Demonstration of a simple CRUD web app, using Ruby and SQL, and deploying to an external server. Also while continuuing to utilise javaScript (including DOM manipulation), basic HTML and basic CSS.
 
 ### Known issues/bugs
 
 - The satoshi calculation is incorrect by a multiple of 10 on Satoshi Converter page.
-- Display only optimised for desktop view.
+- UI is only optimised for desktop view, mobile device untested.
 
-
-[Link to project requirements document](https://gist.github.com/epoch/7651b05c23b1fd26f00663b4866c1e26)
 
 Planning
 

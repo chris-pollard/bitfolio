@@ -359,3 +359,369 @@ button {
 .home-logo {
     align-self: center;
 }
+
+@media (max-width: 700px) {
+
+    * {
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: #476268;
+        margin: 0;
+        padding: 0;
+    }
+    
+    html, body {
+
+    }
+    
+    body {
+        min-height: 100vh;
+        margin: 0;
+    
+    }
+    
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        background-color: #f1f1f1;
+  
+        width: 100%;
+    }
+
+    header, .wrapper, footer {
+        width: 100%;
+        align-self: center;
+    }
+    
+    header {
+        border-bottom: 1px solid darkgrey;
+        padding-bottom: 30px;
+    }
+    
+    .grow {
+        flex-grow: 5;
+    }
+    
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header {
+        display: grid;
+        grid-template-rows: 50px 60px;
+    
+    }
+    
+    .top-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    
+    .inline {
+        display: inline;
+        margin: 0;
+    }
+    
+    .header-title {
+        font-size: 1em;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 500;
+        margin-bottom: -3px;
+        color: #476268;
+    }
+    
+    .header-subtitle {
+        font-size: 0.7em;
+        display: none;
+    }
+    
+
+    .left-header, .right-header {
+        align-items: center;
+    }
+    
+    .centre-header {
+        justify-content: center;
+        display: none;
+    }
+    
+    .pad-right {
+        padding-right: 5px;
+    }
+    
+    .pad-left {
+        padding-left: 5px;
+    }
+    
+    .bold {
+        font-weight: 700;
+    }
+    
+    .ticker {
+        margin: 0;
+        display: none;
+    }
+    
+    .right-header {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    
+    .login-link {
+        padding-right: 15px;
+    }
+    
+    .top-nav-ul {
+        padding: 0;
+    }
+    
+    .top-nav-li {
+        padding-right: 25px;
+    }
+    
+    .home-logo {
+        max-width: 500px;
+        margin-bottom: -120px;
+    }
+    
+    a {
+        /* background-color: #95E06C; */
+        background-color: #f1f1f1;
+        /* box-shadow: 0 2px 0 #41a798; */
+        color: #476268;
+        padding: 0.3em 0.6em;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        /* border-radius: 2px; */
+      }
+    
+    .bitcoin-wiki-link, .crud-wiki-link {
+        background-color: #f1f1f1;
+        /* box-shadow: 0 2px 0 #41a798; */
+        color: #476268;
+        padding: 0;
+        position: relative;
+        text-decoration: none;
+        text-transform: initial;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    .bitcoin-wiki-link:hover {
+        background-color: initial;
+    }
+    
+    .crud-wiki-link:hover {
+        background-color: initial;
+    }
+    
+    .crud-wiki-link:active {
+        box-shadow: none;
+        top: initial;
+    }
+    
+    .bitcoin-wiki-link:active {
+        box-shadow: none;
+        top: initial;
+    }
+      
+      a:hover {
+        background-color: #CEF1BC;
+      }
+    
+      button:hover {
+        cursor: pointer;
+      }
+      
+      a:active {
+        box-shadow: none;
+        top: 5px;
+      }
+    
+      .shield-header {
+          height: 2em;
+          padding-right: 10px;
+          padding-left: 10px;
+          
+      }
+    
+      .current-usd {
+          color: #094D92;
+      }
+    
+      .btc-title {
+        color: #094D92;
+      }
+    
+      .disclaimer {
+          font-size: 0.8em;
+          padding-top: 10px;
+      }
+    
+      form {
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+          text-align: left;
+          align-self: center;
+    
+      }
+    
+      button {
+          width: 50%;
+      }
+    
+      input, button, label {
+          margin: 0;
+      }
+    
+      label {
+          padding: 10px 0;
+      }
+    
+      button {
+          margin-top: 20px;
+      }
+    
+      main {
+          display: flex;
+          flex-direction: column;
+    
+    
+      }
+    
+      .right-align {
+          text-align: right;
+      }
+    
+      .left-align {
+        text-align: left;
+    }
+    
+    
+    .home-login, .home-signup, .cancel {
+        position: initial;
+        width: 150px;
+        border-radius: 0;
+        align-self: center;
+    }
+    
+    .home-login {
+        margin-top: 50px;
+    }
+    
+    .logout-form {
+        justify-content: flex-end;
+        text-align: right;
+        align-self: flex-end;
+        position: relative;
+        
+    }
+    
+    .logout-btn {
+        display: inline-block;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .portfolio-heading {
+        padding-top: 50px;
+        padding-bottom: 25px;
+    }
+    
+    .portfolio-profit {
+        padding-bottom: 30px; 
+    }
+    
+    .page-heading {
+        padding-top: 50px;
+        padding-bottom: 25px;
+    }
+    
+    .page-subheading {
+        padding-bottom: 30px;
+    }
+    
+    .page-text {
+        width: 500px;
+        align-self: center;
+    }
+    
+    .satoshi-calculator {
+        padding-top: 30px;
+    }
+    
+    .satoshi-form {
+        margin: auto;
+    }
+    
+    .negative {
+        color: red;
+    }
+    
+    .positive {
+        color: #50A824;
+    }
+    
+    .add-trade-top {
+        margin-bottom: 20px;
+        background-color: #41A798;
+        box-shadow: 0 2px 0 #1C1018;
+        color: white;
+    }
+    
+    .add-trade-bottom {
+        margin-top: 20px;
+        background-color: #41A798;
+        box-shadow: 0 2px 0 #1C1018;
+        color: white;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+      
+      a:hover {
+        background-color: #CEF1BC;
+        color: #1C1018;
+      }
+    
+    .col-title {
+        padding-bottom: 10px;
+    }
+    
+    .edit-link {
+        margin-bottom: 15px;
+        margin-left: 35px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    
+    footer {
+        padding-top: 100px;
+        padding-bottom: 10px;
+    }
+    
+    form input, form button, select, option {
+        font-size: 1em;
+    }
+    
+    button {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        align-self: center;
+    }
+    
+    .home-logo {
+        align-self: center;
+    }
+}
