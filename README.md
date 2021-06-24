@@ -7,7 +7,7 @@ First prototype version - published 12 March 2021. Deployed on Heroku platform.
 ![alt text](public/resources/bitfolio_web_app_screenshot.png "prototype screenshot")
 
 ### Purpose
-The purpose of this application is to manage bitcoin transaction records. Features include:
+The purpose of this web application is for users to manage bitcoin transaction records. Features include:
 - Sign in / log in functionality
 - Add record, update record, delete record.
 - View records in a table.
@@ -24,7 +24,7 @@ Demonstration of a simple CRUD web app, using Ruby and SQL, and deploying to an 
 - UI is only optimised for desktop view, mobile device untested.
 
 
-Planning
+### Planning
 
 [Screenshot 1](Profit_algo_planning1.jpg)
 
